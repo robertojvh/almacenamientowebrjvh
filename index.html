@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae - Roberto José Velásquez Herrera</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Inter & JetBrains Mono) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#0f172a',
+                            900: '#0b1120',
+                            950: '#050811',
+                        },
+                        accent: {
+                            blue: '#38bdf8',
+                            indigo: '#6366f1',
+                            teal: '#14b8a6',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/css">
+        /* Glassmorphism & custom utility styles */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .light .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .border-gradient {
+            border-image: linear-gradient(to right, #38bdf8, #6366f1) 1;
+        }
+
+        /* Print Stylesheet Adjustments */
+        @media print {
+            body {
+                background: white !important;
+                color: #0f172a !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-full-width {
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .glass-card {
+                background: white !important;
+                border: 1px solid #cbd5e1 !important;
+                box-shadow: none !important;
+                backdrop-filter: none !important;
+                break-inside: avoid;
+            }
+            .text-gradient {
+                background: none !important;
+                -webkit-text-fill-color: #0f172a !important;
+                color: #0f172a !important;
+            }
+            a {
+                text-decoration: underline;
+                color: #0284c7 !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-navy-950 text-slate-200 font-sans antialiased selection:bg-sky-500 selection:text-white min-h-screen flex flex-col transition-colors duration-300 dark">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="sticky top-0 z-50 glass-card border-b border-slate-800/80 no-print">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-sky-500/20">
+                        RV
+                    </div>
+                    <span class="font-bold text-lg tracking-tight text-white hidden sm:block">Roberto Velásquez</span>
+                </div>
+                
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-300">
+                    <a href="#about" class="hover:text-sky-400 transition-colors">Perfil</a>
+                    <a href="#experience" class="hover:text-sky-400 transition-colors">Experiencia</a>
+                    <a href="#skills" class="hover:text-sky-400 transition-colors">Habilidades</a>
+                    <a href="#projects" class="hover:text-sky-400 transition-colors">Proyectos</a>
+                    <a href="#education" class="hover:text-sky-400 transition-colors">Educación</a>
+                </div>
+
+                <!-- Right Actions (Print/Theme/Contact) -->
+                <div class="flex items-center gap-3">
+                    <button id="themeToggleBtn" onclick="toggleTheme()" title="Cambiar Tema" class="p-2.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 transition-all border border-slate-700/50">
+                        <i class="fa-solid fa-moon text-sky-400" id="themeIcon"></i>
+                    </button>
+                    <button onclick="window.print()" class="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-200 text-sm font-medium transition-all border border-slate-700/50">
+                        <i class="fa-solid fa-print text-sky-400"></i>
+                        <span>Imprimir / PDF</span>
+                    </button>
+                    <a href="#contact" class="px-4 py-2 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white text-sm font-semibold shadow-md shadow-sky-500/20 transition-all">
+                        Contacto
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+        <!-- HEADER / HERO SECTION -->
+        <header id="about" class="glass-card rounded-3xl p-6 sm:p-10 relative overflow-hidden shadow-2xl">
+            <!-- Decorative background elements -->
+            <div class="absolute -top-24 -right-24 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center md:items-start justify-between">
+                
+                <!-- Avatar & Core Info -->
+                <div class="flex flex-col sm:flex-row gap-6 items-center sm:items-start text-center sm:text-left">
+                    <div class="relative">
+                        <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl bg-slate-800 border-2 border-sky-500/40 p-1 flex items-center justify-center text-4xl font-extrabold text-sky-400 shadow-xl overflow-hidden group">
+                            <!-- Placeholder Initials Avatar with hover effect -->
+                            <div class="w-full h-full bg-slate-900 rounded-xl flex items-center justify-center bg-gradient-to-br from-slate-800 to-slate-950">
+                                <span class="text-gradient font-mono">RV</span>
+                            </div>
+                        </div>
+                        <span class="absolute -bottom-2 -right-2 bg-emerald-500 border-2 border-slate-900 w-5 h-5 rounded-full" title="Disponible para Proyectos y Consultoría"></span>
+                    </div>
+
+                    <div class="space-y-3 max-w-xl">
+                        <div>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-sky-500/10 text-sky-400 border border-sky-500/20 mb-2">
+                                <i class="fa-solid fa-circle text-[8px] animate-pulse"></i> +15 Años de Experiencia
+                            </span>
+                            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                                Roberto José <br class="hidden sm:inline"/>Velásquez Herrera
+                            </h1>
+                        </div>
+                        
+                        <p class="text-sky-400 font-medium text-lg sm:text-xl">
+                            Ingeniero de Sistemas | Desarrollador Software Freelance | Docente Universitario
+                        </p>
+
+                        <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                            Especialista en arquitectura de software, desarrollo ERP empresarial, facturación electrónica e integración de Machine Learning. Apasionado por la docencia técnica y la gestión de proyectos académicos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fast Contact Details Box -->
+                <div class="w-full md:w-auto flex flex-col gap-3 min-w-[240px] pt-4 md:pt-0 border-t md:border-t-0 border-slate-700/50">
+                    <div class="flex items-center gap-3 text-slate-300 text-sm">
+                        <div class="w-8 h-8 rounded-lg bg-sky-500/10 flex items-center justify-center text-sky-400 shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <span>Perú (Disponible Remote/Híbrido)</span>
+                    </div>
+
+                    <a href="mailto:robertovelazquezherrera@gmail.com" class="flex items-center gap-3 text-slate-300 hover:text-sky-400 transition-colors text-sm group">
+                        <div class="w-8 h-8 rounded-lg bg-sky-500/10 flex items-center justify-center text-sky-400 shrink-0 group-hover:bg-sky-500 group-hover:text-white transition-all">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <span class="truncate">Contacto por Email</span>
+                    </a>
+
+                    <a href="https://linkedin.com" target="_blank" rel="noopener" class="flex items-center gap-3 text-slate-300 hover:text-sky-400 transition-colors text-sm group">
+                        <div class="w-8 h-8 rounded-lg bg-sky-500/10 flex items-center justify-center text-sky-400 shrink-0 group-hover:bg-sky-500 group-hover:text-white transition-all">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </div>
+                        <span>LinkedIn Profile</span>
+                    </a>
+
+                    <a href="tel:+51900000000" class="flex items-center gap-3 text-slate-300 hover:text-sky-400 transition-colors text-sm group">
+                        <div class="w-8 h-8 rounded-lg bg-sky-500/10 flex items-center justify-center text-sky-400 shrink-0 group-hover:bg-sky-500 group-hover:text-white transition-all">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <span>+51 (Perú)</span>
+                    </a>
+
+                    <button onclick="window.print()" class="mt-2 w-full py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-sky-400 font-semibold text-xs border border-sky-500/30 flex items-center justify-center gap-2 transition-all">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <span>Descargar PDF / Imprimir</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- PROFESSIONAL SUMMARY -->
+        <section class="glass-card rounded-2xl p-6 sm:p-8">
+            <h2 class="text-xl font-bold text-white flex items-center gap-3 mb-4">
+                <i class="fa-solid fa-user-check text-sky-400"></i>
+                <span>Resumen Profesional</span>
+            </h2>
+            <div class="text-slate-300 leading-relaxed text-sm sm:text-base space-y-4">
+                <p>
+                    Ingeniero de Sistemas con más de <strong class="text-sky-300 font-semibold">15 años de trayectoria profesional</strong> destacada en la educación superior universitaria y técnica, la arquitectura de software a medida y la dirección gerencial. Liderazgo comprobado en la conceptualización, desarrollo e implementación de sistemas integrados <strong class="text-white">ERP, control de inventarios, gestión de ventas y módulos de facturación electrónica SUNAT</strong>.
+                </p>
+                <p>
+                    Acreditada capacidad docente en universidades e institutos de prestigio a nivel nacional (UPN, Tecsup, SISE, Paul Müller, UCH, UCV), diseñando sílabos, estructurando módulos académicos y capacitando a cientos de estudiantes y profesionales. Experto en integrar soluciones tecnológicas modernas, desde sistemas cliente-servidor robustos en C# .NET hasta modelos predictivos e Inteligencia Artificial aplicados a la gestión de demanda.
+                </p>
+            </div>
+        </section>
+
+        <!-- KEY STATS -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 no-print">
+            <div class="glass-card rounded-xl p-5 text-center">
+                <div class="text-3xl font-extrabold text-sky-400 font-mono mb-1">+15</div>
+                <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Años de Experiencia</div>
+            </div>
+            <div class="glass-card rounded-xl p-5 text-center">
+                <div class="text-3xl font-extrabold text-indigo-400 font-mono mb-1">6+</div>
+                <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Instituciones Académicas</div>
+            </div>
+            <div class="glass-card rounded-xl p-5 text-center">
+                <div class="text-3xl font-extrabold text-teal-400 font-mono mb-1">7</div>
+                <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Sedes ERP Integradas</div>
+            </div>
+            <div class="glass-card rounded-xl p-5 text-center">
+                <div class="text-3xl font-extrabold text-purple-400 font-mono mb-1">+1000</div>
+                <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Alumnos Formados</div>
+            </div>
+        </div>
+
+        <!-- WORK EXPERIENCE SECTION WITH INTERACTIVE FILTERING -->
+        <section id="experience" class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+                    <i class="fa-solid fa-briefcase text-sky-400"></i>
+                    <span>Experiencia Profesional</span>
+                </h2>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap gap-2 no-print" id="expFilters">
+                    <button onclick="filterExperience('all')" class="exp-btn active text-xs px-3 py-1.5 rounded-lg bg-sky-500 text-white font-medium transition-all">
+                        Todos
+                    </button>
+                    <button onclick="filterExperience('academic')" class="exp-btn text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium transition-all">
+                        Docencia & Academia
+                    </button>
+                    <button onclick="filterExperience('dev')" class="exp-btn text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium transition-all">
+                        Desarrollo & Freelance
+                    </button>
+                    <button onclick="filterExperience('management')" class="exp-btn text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium transition-all">
+                        Gestión Gerencial
+                    </button>
+                </div>
+            </div>
+
+            <!-- Timeline List -->
+            <div class="space-y-6 relative before:absolute before:inset-0 before:left-3.5 sm:before:left-5 before:w-0.5 before:bg-slate-800">
+                
+                <!-- Experience Item 1: RV Capacitaciones -->
+                <div class="exp-item relative pl-10 sm:pl-12" data-category="management dev">
+                    <div class="absolute left-1.5 sm:left-3 top-1.5 w-5 h-5 rounded-full bg-sky-500 border-4 border-navy-950"></div>
+                    <div class="glass-card rounded-2xl p-6 space-y-3">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-700/50 pb-3">
+                            <div>
+                                <h3 class="text-lg font-bold text-white">Fundador & Director Gerente</h3>
+                                <div class="text-sky-400 font-medium text-sm">RV Capacitación y Adiestramiento Laboral S.A.C. (RV Capacitaciones)</div>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-slate-800 text-sky-300 border border-slate-700 w-max">
+                                <i class="fa-regular fa-calendar"></i> 2018 - Presente
+                            </span>
+                        </div>
+                        <ul class="list-disc list-inside text-slate-300 text-sm space-y-2 leading-relaxed">
+                            <li>Dirección estratégica, planificación financiera y gestión operativa de la institución de capacitación laboral técnica.</li>
+                            <li>Diseño instruccional y estructuración de programas especializados en Ingeniería de Software, Base de Datos, y Gestión Empresarial.</li>
+                            <li>Desarrollo de la plataforma web corporativa y sistema interno de matriculación y certificación digital de estudiantes.</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Gestión Empresarial</span>
+                            <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Diseño Curricular</span>
+                            <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">E-Learning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Item 2: University Lecturer (Multiple Universities) -->
+                <div class="exp-item relative pl-10 sm:pl-12" data-category="academic">
+                    <div class="absolute left-1.5 sm:left-3 top-1.5 w-5 h-5 rounded-full bg-indigo-500 border-4 border-navy-950"></div>
+                    <div class="glass-card rounded-2xl p-6 space-y-3">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-700/50 pb-3">
+                            <div>
+                                <h3 class="text-lg font-bold text-white">Docente Universitario y Especialista Académico</h3>
+                                <div class="text-indigo-400 font-medium text-sm">UPN | Tecsup | SISE | Paul Müller | UCH | UCV</div>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-slate-800 text-indigo-300 border border-slate-700 w-max">
+                                <i class="fa-regular fa-calendar"></i> 2009 - Presente (+15 Años)
+                            </span>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Cátedra universitaria y superior en áreas clave de las Ciencias de la Computación, Ingeniería de Software y Sistemas de Información.
+                        </p>
+                        <ul class="list-disc list-inside text-slate-300 text-sm space-y-2 leading-relaxed">
+                            <li>Cursos impartidos: Programación Orientada a Objetos (C#, Java), Modelado de Bases de Datos SQL, Ingeniería de Requerimientos, Metodologías Ágiles (Scrum), Arquitectura de Software y Proyectos de Tesis.</li>
+                            <li>Elaboración de contenidos pedagógicos, laboratorios prácticos y evaluación por competencias alineados a estándares de acreditación.</li>
+                            <li>Asesoría y jurado de proyectos de titulación profesional en Ingeniería de Sistemas e Informática.</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs px-2.5 py-1 rounded-md bg-indigo-950/60 text-indigo-300 border border-indigo-800/40">UPN</span>
+                            <span class="text-xs px-2.5 py-1 rounded-md bg-indigo-950/60 text-indigo-300 border border-indigo-800/40">Tecsup</span>
+                            <span class="text-xs px-2.5 py-1 rounded-md bg-indigo-950/60 text-indigo-300 border border-indigo-800/40">SISE</span>
+                            <span class="text-xs px-2.5 py-1 rounded-md bg-indigo-950/60 text-indigo-300 border border-indigo-800/40">UCH</span>
+                            <span class="text-xs px-2.5 py-1 rounded-md bg-indigo-950/60 text-indigo-300 border border-indigo-800/40">UCV</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Item 3: Senior Freelance Software Developer -->
+                <div class="exp-item relative pl-10 sm:pl-12" data-category="dev">
+                    <div class="absolute left-1.5 sm:left-3 top-1.5 w-5 h-5 rounded-full bg-teal-500 border-4 border-navy-950"></div>
+                    <div class="glass-card rounded-2xl p-6 space-y-3">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-700/50 pb-3">
+                            <div>
+                                <h3 class="text-lg font-bold text-white">Ingeniero de Software Senior Freelance</h3>
+                                <div class="text-teal-400 font-medium text-sm">Consultoría Independiente & Desarrollo a Medida</div>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-slate-800 text-teal-300 border border-slate-700 w-max">
+                                <i class="fa-regular fa-calendar"></i> 2010 - Presente
+                            </span>
+                        </div>
+                        <ul class="list-disc list-inside text-slate-300 text-sm space-y-2 leading-relaxed">
+                            <li><strong class="text-white">ERP Ferretero Multi-Sede (Tumbes):</strong> Arquitectura e implementación de un sistema ERP integral para cadena comercial en Tumbes, interconectando 7 sedes en tiempo real para control de inventarios, compras, ventas y caja.</li>
+                            <li><strong class="text-white">Facturación Electrónica:</strong> Integración directa de módulos de facturación electrónica en cumplimiento con la normativa SUNAT (emisión de boletas, facturas, notas de crédito/débito).</li>
+                            <li><strong class="text-white">Machine Learning e Inteligencia Artificial:</strong> Desarrollo de modelos predictivos orientados a la estimación de demanda de inventarios y optimización de compras en el sector comercial (caso de estudio PCPLUSIMPORT).</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">C# / .NET</span>
+                            <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">SQL Server</span>
+                            <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Facturación SUNAT</span>
+                            <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Python / ML</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CORE COMPETENCIES & SKILLS -->
+        <section id="skills" class="space-y-6">
+            <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+                <i class="fa-solid fa-code text-sky-400"></i>
+                <span>Competencias Técnicas y Habilidades</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Category 1: Languages & Frameworks -->
+                <div class="glass-card rounded-2xl p-6 space-y-4 hover:border-sky-500/30 transition-all">
+                    <div class="flex items-center gap-3 border-b border-slate-700/50 pb-3">
+                        <div class="w-10 h-10 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-400 font-bold text-lg">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-base">Lenguajes y Frameworks</h3>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="text-slate-200">C# / .NET / WPF / WinForms</span>
+                                <span class="text-sky-400">95%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2">
+                                <div class="bg-sky-500 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="text-slate-200">SQL Server / MySQL / Relational DB</span>
+                                <span class="text-sky-400">90%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2">
+                                <div class="bg-sky-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="text-slate-200">Desarrollo Web (HTML5, CSS, JS)</span>
+                                <span class="text-sky-400">85%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2">
+                                <div class="bg-sky-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span class="text-slate-200">Python / Machine Learning Basics</span>
+                                <span class="text-sky-400">80%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2">
+                                <div class="bg-sky-500 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: Tools & Ecosystem -->
+                <div class="glass-card rounded-2xl p-6 space-y-4 hover:border-indigo-500/30 transition-all">
+                    <div class="flex items-center gap-3 border-b border-slate-700/50 pb-3">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 font-bold text-lg">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-base">Herramientas y Entornos</h3>
+                    </div>
+
+                    <ul class="space-y-2.5 text-sm text-slate-300">
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-indigo-400 text-xs"></i>
+                            <span>Visual Studio / VS Code</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-indigo-400 text-xs"></i>
+                            <span>Microsoft Project / Bizagi Modeler</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-indigo-400 text-xs"></i>
+                            <span>Power BI (Análisis e Indicadores)</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-indigo-400 text-xs"></i>
+                            <span>Google Colab / Jupyter Notebooks</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-indigo-400 text-xs"></i>
+                            <span>Git / GitHub Control de Versiones</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Category 3: Specializations -->
+                <div class="glass-card rounded-2xl p-6 space-y-4 hover:border-teal-500/30 transition-all">
+                    <div class="flex items-center gap-3 border-b border-slate-700/50 pb-3">
+                        <div class="w-10 h-10 rounded-xl bg-teal-500/10 flex items-center justify-center text-teal-400 font-bold text-lg">
+                            <i class="fa-solid fa-diagram-project"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-base">Especialidades clave</h3>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-medium border border-slate-700">Sistemas ERP Personalizados</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-medium border border-slate-700">Gestión de Inventarios y Ventas</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-medium border border-slate-700">Facturación Electrónica SUNAT</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-medium border border-slate-700">Diseño Curricular y Pedagogía</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-medium border border-slate-700">Modelado Predictivo de Demanda</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FEATURED PROJECTS SECTION -->
+        <section id="projects" class="space-y-6">
+            <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+                <i class="fa-solid fa-cubes text-sky-400"></i>
+                <span>Proyectos Destacados</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Project 1: Hardware Store ERP -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between hover:scale-[1.02] transition-all group">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-400 font-bold text-xl group-hover:bg-sky-500 group-hover:text-white transition-all">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg">ERP Multi-Sede Comercial</h3>
+                        <p class="text-slate-400 text-xs font-medium text-sky-400">Desarrollado para Cadena Ferretera en Tumbes</p>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Sistema ERP a medida interconectando 7 sedes operativas. Módulos de transferencias entre almacenes, facturación en punto de venta, arqueo de caja e inventario centralizado.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-700/50 mt-4">
+                        <button onclick="openModal('project1')" class="text-xs text-sky-400 font-semibold hover:underline flex items-center gap-1">
+                            Ver detalles <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2: PCPLUSIMPORT Demand Prediction ML -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between hover:scale-[1.02] transition-all group">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 font-bold text-xl group-hover:bg-indigo-500 group-hover:text-white transition-all">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg">Plataforma Web Predictiva ERP</h3>
+                        <p class="text-slate-400 text-xs font-medium text-indigo-400">Proyecto de Investigación / Tesis PCPLUSIMPORT</p>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Plataforma web inteligente que utiliza algoritmos de Machine Learning para predecir la demanda de inventario, optimizando el stock y previniendo desabastecimientos.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-700/50 mt-4">
+                        <button onclick="openModal('project2')" class="text-xs text-indigo-400 font-semibold hover:underline flex items-center gap-1">
+                            Ver detalles <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3: RV Capacitaciones Platform -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between hover:scale-[1.02] transition-all group">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-teal-500/10 flex items-center justify-center text-teal-400 font-bold text-xl group-hover:bg-teal-500 group-hover:text-white transition-all">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg">Ecosistema RV Capacitaciones</h3>
+                        <p class="text-slate-400 text-xs font-medium text-teal-400">Plataforma Educativa e Institucional</p>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Plataforma de gestión académica para cursos, emisión de certificados verificables por QR, registro de estudiantes y pasarela de pago para capacitación laboral.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-700/50 mt-4">
+                        <button onclick="openModal('project3')" class="text-xs text-teal-400 font-semibold hover:underline flex items-center gap-1">
+                            Ver detalles <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- EDUCATION & ACADEMIC BACKGROUND -->
+        <section id="education" class="space-y-6">
+            <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+                <i class="fa-solid fa-graduation-cap text-sky-400"></i>
+                <span>Educación y Formación Académica</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Master Degree -->
+                <div class="glass-card rounded-2xl p-6 space-y-3 border-l-4 border-sky-500">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-sky-500/10 text-sky-400 border border-sky-500/20">Maestría</span>
+                            <h3 class="text-lg font-bold text-white mt-2">Maestría en Ingeniería Informática</h3>
+                            <p class="text-slate-300 text-sm font-medium">Universidad Nacional de Piura (PROMAINFO)</p>
+                        </div>
+                        <i class="fa-solid fa-award text-2xl text-sky-400"></i>
+                    </div>
+                    <p class="text-slate-400 text-xs">
+                        Especialización avanzada en arquitectura de sistemas, gestión de proyectos de tecnologías de información y métodos computacionales.
+                    </p>
+                </div>
+
+                <!-- Systems Engineer Degree -->
+                <div class="glass-card rounded-2xl p-6 space-y-3 border-l-4 border-indigo-500">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Pregrado</span>
+                            <h3 class="text-lg font-bold text-white mt-2">Título Profesional en Ingeniería de Sistemas</h3>
+                            <p class="text-slate-300 text-sm font-medium">Grado Universitario Titulado</p>
+                        </div>
+                        <i class="fa-solid fa-certificate text-2xl text-indigo-400"></i>
+                    </div>
+                    <p class="text-slate-400 text-xs">
+                        Formación integral en diseño de algoritmos, redes, gestión de bases de datos y desarrollo de software empresarial.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION / FOOTER -->
+        <footer id="contact" class="glass-card rounded-3xl p-8 text-center space-y-6 relative overflow-hidden">
+            <div class="max-w-2xl mx-auto space-y-3">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">¿Interesado en colaborar o contratar consultoría?</h2>
+                <p class="text-slate-300 text-sm sm:text-base">
+                    Estoy disponible para proyectos de desarrollo de software a medida, asesorías académicas, capacitaciones corporativas y dictado universitario.
+                </p>
+            </div>
+
+            <div class="flex flex-wrap justify-center items-center gap-4 pt-2 no-print">
+                <a href="mailto:robertovelazquezherrera@gmail.com" class="px-6 py-3 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white font-semibold text-sm shadow-lg shadow-sky-500/25 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>Enviar Mensaje</span>
+                </a>
+                <button onclick="window.print()" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-file-pdf text-sky-400"></i>
+                    <span>Guardar como PDF</span>
+                </button>
+            </div>
+
+            <div class="border-t border-slate-800 pt-6 text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-2">
+                <span>© 2026 Roberto José Velásquez Herrera - Todos los derechos reservados.</span>
+                <span>Ingeniero de Sistemas | Perú</span>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- MODAL FOR PROJECT DETAILS -->
+    <div id="projectModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm no-print">
+        <div class="glass-card bg-slate-900 rounded-2xl max-w-lg w-full p-6 space-y-4 border border-slate-700 relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="modalContent">
+                <!-- Content injected dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Experience Filter Logic
+        function filterExperience(category) {
+            const items = document.querySelectorAll('.exp-item');
+            const buttons = document.querySelectorAll('.exp-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-sky-500', 'text-white');
+                btn.classList.add('bg-slate-800', 'text-slate-300');
+            });
+
+            event.currentTarget.classList.remove('bg-slate-800', 'text-slate-300');
+            event.currentTarget.classList.add('bg-sky-500', 'text-white');
+
+            items.forEach(item => {
+                const itemCats = item.getAttribute('data-category');
+                if (category === 'all' || itemCats.includes(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Project Modal Details Data
+        const projectsData = {
+            project1: {
+                title: "ERP Ferretero Multi-Sede (Tumbes)",
+                subtitle: "Sistema de Control de Inventario y Ventas Centralizado",
+                description: "Solución de software integral diseñada para una importante cadena ferretera en la región Tumbes. Conectó en tiempo real 7 sucursales alejadas geográficamente.",
+                features: [
+                    "Sincronización multi-sede de stock de inventarios en tiempo real.",
+                    "Punto de Venta (POS) optimizado para transacciones rápidas.",
+                    "Módulo de facturación electrónica integrado.",
+                    "Reportes consolidados de ventas y rentabilidad por sucursal."
+                ]
+            },
+            project2: {
+                title: "Plataforma Web Predictiva PCPLUSIMPORT",
+                subtitle: "Machine Learning Aplicado a la Gestión de Inventarios",
+                description: "Proyecto avanzado de investigación enfocado en predecir el comportamiento de compras de componentes de computación y tecnología.",
+                features: [
+                    "Algoritmos de series de tiempo para predicción de demanda.",
+                    "Alertas automáticas de reabastecimiento crítico.",
+                    "Dashboard interactivo para toma de decisiones gerenciales.",
+                    "Reducción sustancial del capital inmovilizado en almacén."
+                ]
+            },
+            project3: {
+                title: "Ecosistema Digital RV Capacitaciones",
+                subtitle: "Plataforma Académica e Institucional",
+                description: "Plataforma propia desarrollada para administrar los servicios de capacitación laboral de RV Capacitaciones.",
+                features: [
+                    "Gestión de matrículas y control de asistencia.",
+                    "Generación automática de certificados con código QR de verificación.",
+                    "Aulas virtuales y repositorio de recursos docentes.",
+                    "Módulo de cobranzas e historial académico de alumnos."
+                ]
+            }
+        };
+
+        function openModal(projectId) {
+            const data = projectsData[projectId];
+            if (!data) return;
+
+            const modalContent = document.getElementById('modalContent');
+            modalContent.innerHTML = `
+                <h3 class="text-xl font-bold text-white">${data.title}</h3>
+                <p class="text-xs text-sky-400 font-medium mb-2">${data.subtitle}</p>
+                <p class="text-sm text-slate-300 leading-relaxed mb-4">${data.description}</p>
+                <h4 class="text-xs font-bold text-slate-200 uppercase tracking-wider mb-2">Características Principales:</h4>
+                <ul class="list-disc list-inside text-xs text-slate-300 space-y-1.5">
+                    ${data.features.map(f => `<li>${f}</li>`).join('')}
+                </ul>
+                <button onclick="closeModal()" class="mt-6 w-full py-2 rounded-xl bg-sky-500 hover:bg-sky-400 text-white font-semibold text-xs transition-all">
+                    Cerrar Ventana
+                </button>
+            `;
+
+            document.getElementById('projectModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').classList.add('hidden');
+        }
+
+        // Theme Toggle (Dark / Light Mode)
+        let isDark = true;
+        function toggleTheme() {
+            isDark = !isDark;
+            const body = document.body;
+            const themeIcon = document.getElementById('themeIcon');
+
+            if (isDark) {
+                body.classList.add('dark', 'bg-navy-950', 'text-slate-200');
+                body.classList.remove('light', 'bg-slate-100', 'text-slate-800');
+                themeIcon.className = "fa-solid fa-moon text-sky-400";
+            } else {
+                body.classList.remove('dark', 'bg-navy-950', 'text-slate-200');
+                body.classList.add('light', 'bg-slate-100', 'text-slate-800');
+                themeIcon.className = "fa-solid fa-sun text-amber-500";
+            }
+        }
+    </script>
+</body>
+</html>
